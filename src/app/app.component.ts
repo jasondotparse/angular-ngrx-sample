@@ -1,4 +1,8 @@
+import { AppState } from './common/models/appState.model';
 import { Component } from '@angular/core';
+import * as CounterActions from './common/actions/counter.actions';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-ngrx-sample';
+  counter$: Observable<number>;
+
+  constructor(private store: Store<AppState>) {
+    this.counter$ = store.select(state => state.mainDashboard.counter);
+  }
+
+  decrementCounter() {
+    this.store.dispatch(new CounterActions.Decrement);
+  }
+
+  incrementCounter() {
+    this.store.dispatch(new CounterActions.Increment);
+  }
 }

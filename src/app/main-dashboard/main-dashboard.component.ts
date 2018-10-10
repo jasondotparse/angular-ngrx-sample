@@ -1,5 +1,5 @@
 // main-dashboard.component.ts
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-main-dashboard',
@@ -8,8 +8,8 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 })
 export class MainDashboardComponent implements OnInit {
 
-  increment = new EventEmitter();
-  decrement = new EventEmitter();
+  @Output() increment = new EventEmitter();
+  @Output() decrement = new EventEmitter();
 
   constructor() { }
 

@@ -1,3 +1,3 @@
 export interface AppState {
-  counter: number;
+  mainDashboard: any;
 }

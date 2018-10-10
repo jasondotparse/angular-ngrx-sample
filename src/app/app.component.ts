@@ -10,10 +10,12 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  counter$: Observable<number>;
+  counter: Observable<number>;
 
   constructor(private store: Store<AppState>) {
-    this.counter$ = store.select(state => state.mainDashboard.counter);
+    store.select(state => state.mainDashboard.counter).subscribe(res => {
+      this.counter = res;
+    });
   }
 
   decrementCounter() {

@@ -1,6 +1,10 @@
+<mat-toolbar color="primary">
+  <span>To-do</span>
+</mat-toolbar>
+
 <app-main-dashboard
   (increment)="incrementCounter()"
   (decrement)="decrementCounter()">
 </app-main-dashboard>
-<app-counter></app-counter>
-<div>{{counter}}</div>
+
+<app-todo-list></app-todo-list>

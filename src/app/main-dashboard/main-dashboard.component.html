@@ -1,6 +1,15 @@
-<!-- main-dashboard.component.html -->
-<div>
-  <h2>Main dashboard</h2>
-  <button (click)="increment.emit()">increment</button>
-  <button (click)="decrement.emit()">decrement</button>
+<div class="mat-typography">
+  <h2>Add item</h2>
+
+  <mat-form-field class="input-field">
+    <input matInput placeholder="task">
+  </mat-form-field>
+
+  <mat-form-field class="input-field">
+    <input matInput placeholder="comment">
+  </mat-form-field>
+
+  <div>
+    <button mat-button>submit</button>
+  </div>
 </div>

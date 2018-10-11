@@ -1,9 +1,11 @@
+import { ApiService } from './services/api.service';
 import { AppState, TodoItem } from './common/models/appState.model';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as TodoListActions from './common/actions/todo-list.actions';
 import * as FeaturedItemActions from './common/actions/featured-item.actions';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Map, Set } from 'immutable';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +15,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class AppComponent implements OnInit {
   todoList: any;
   featuredItem: TodoItem;
-  items;
 
-  constructor(private store: Store<AppState>, private db: AngularFirestore) {
+  constructor(private store: Store<AppState>, private db: AngularFirestore, private api: ApiService) {
     store.select(state => state.todoList).subscribe(res => {
       this.todoList = res;
     });
@@ -26,14 +27,15 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.items = this.db.collection('tasks').valueChanges();
-    this.items.subscribe(res => {
-      console.log(res);
+    this.api.getTasks().subscribe(res => {
+      this.initializeTaskList(res);
     });
   }
 
-  initializeTaskList(taskList) {
-
+  initializeTaskList(arr) {
+    const mapArr = arr.map(obj => Map(obj));
+    const mapSet = Set.of(...mapArr);
+    this.store.dispatch(new TodoListActions.InitializeTaskList(mapSet));
   }
 
   submitNewTask(evt) {

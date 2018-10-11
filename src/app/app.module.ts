@@ -1,3 +1,4 @@
+import { ApiService } from './services/api.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -53,6 +54,7 @@ export const firebaseConfig = {
   ],
   providers: [
     AngularFirestore,
+    ApiService
   ],
   bootstrap: [AppComponent]
 })

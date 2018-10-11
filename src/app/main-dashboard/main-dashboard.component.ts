@@ -1,3 +1,4 @@
+import { Map } from 'immutable';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
@@ -18,6 +19,6 @@ export class MainDashboardComponent implements OnInit {
   }
 
   submit() {
-    this.submitNewTask.emit({ task: this.task, comment: this.comment });
+    this.submitNewTask.emit(Map({ task: this.task, comment: this.comment }));
   }
 }

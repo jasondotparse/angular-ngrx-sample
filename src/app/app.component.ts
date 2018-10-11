@@ -23,15 +23,15 @@ export class AppComponent {
     });
   }
 
-  submitNewTask(evt: TodoItem) {
+  submitNewTask(evt) {
     this.store.dispatch(new TodoListActions.NewTask(evt));
   }
 
-  deleteItem(evt: string) {
+  deleteItem(evt) {
     this.store.dispatch(new TodoListActions.DeleteTask(evt));
   }
 
-  setFeaturedItem(evt: TodoItem) {
+  setFeaturedItem(evt) {
     this.store.dispatch(new FeaturedItemActions.SetFeatured(evt));
   }
 

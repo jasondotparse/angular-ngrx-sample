@@ -1,4 +1,4 @@
 <div *ngIf="featuredItem" class="mat-typography">
-  <div>{{featuredItem.task}}</div>
-  <div>{{featuredItem.comment}}</div>
+  <div>{{featuredItem.get('task')}}</div>
+  <div>{{featuredItem.get('comment')}}</div>
 </div>

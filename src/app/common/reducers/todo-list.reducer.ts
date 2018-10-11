@@ -1,5 +1,5 @@
 import * as todoListActions from '../actions/todo-list.actions';
-import { Map, Seq, List } from 'immutable';
+import { Map, is, List } from 'immutable';
 
 const defaultState = List.of(
   Map({ task: 'walk dog', comment: 'comment 1' }),
@@ -7,12 +7,13 @@ const defaultState = List.of(
   Map({ task: 'do laundry', comment: 'comment 3'})
 );
 
-export function TodoListReducer(state = defaultState,  action) {
+export function TodoListReducer(state = defaultState,  action): List<Map<string, string>> {
   switch (action.type) {
     case 'DELETE_TASK':
-      return state.filter(task => task.get(action.payload) !== action.payload);
+      const newIterable = state.filter(task => !task.equals(action.payload));
+      return List(newIterable);
     case 'NEW_TASK':
-      return state.push(Map({ task: action.payload.task, comment: action.payload.comment}));
+      return state.push(action.payload);
     default:
       return state;
   }

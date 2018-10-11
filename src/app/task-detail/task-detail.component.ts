@@ -1,3 +1,4 @@
+import { Map } from 'immutable';
 import { TodoItem } from './../common/models/appState.model';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -7,11 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./task-detail.component.css']
 })
 export class TaskDetailComponent implements OnInit {
-  @Input() featuredItem: TodoItem;
+  @Input() featuredItem: Map<string, string>;
 
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

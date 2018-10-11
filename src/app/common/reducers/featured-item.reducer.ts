@@ -1,8 +1,9 @@
+import { Map } from 'immutable';
 import { TodoItem } from './../models/appState.model';
-export function FeaturedItemReducer(state: TodoItem = {
-  task: '',
-  comment: ''
-},  action) {
+
+const defaultState = Map({task: 'hi', comment: 'test'});
+
+export function FeaturedItemReducer(state = defaultState,  action): Map<string, string> {
   switch (action.type) {
     case 'SET_FEATURED':
       return action.payload;

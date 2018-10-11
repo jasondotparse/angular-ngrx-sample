@@ -10,7 +10,7 @@ import * as FeaturedItemActions from './common/actions/featured-item.actions';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  todoList: Array<TodoItem>;
+  todoList: any;
   featuredItem: TodoItem;
 
   constructor(private store: Store<AppState>) {
@@ -23,11 +23,11 @@ export class AppComponent {
     });
   }
 
-  submitNewTask(evt) {
+  submitNewTask(evt: TodoItem) {
     this.store.dispatch(new TodoListActions.NewTask(evt));
   }
 
-  deleteItem(evt) {
+  deleteItem(evt: string) {
     this.store.dispatch(new TodoListActions.DeleteTask(evt));
   }
 

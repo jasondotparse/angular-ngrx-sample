@@ -8,12 +8,14 @@ import { TodoItem } from '../common/models/appState.model';
 })
 export class TodoListComponent implements OnInit {
 
-  @Input() todoList: Array<TodoItem>;
+  @Input() todoList: any;
   @Output() deleteItem = new EventEmitter();
   @Output() setFeatured = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+
+  }
 
 }

@@ -10,20 +10,22 @@ import { AppComponent } from './app.component';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { MainDashboardReducer } from './common/reducers/main-dashboard.reducer';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoItemComponent } from './todo-list/todo-item/todo-item.component';
+import { TodoListReducer } from './common/reducers/todo-list.reducer';
+import { TaskDetailComponent } from './task-detail/task-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainDashboardComponent,
     TodoListComponent,
-    TodoItemComponent
+    TodoItemComponent,
+    TaskDetailComponent
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({ mainDashboard: MainDashboardReducer }),
+    StoreModule.forRoot({ todoList: TodoListReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25
     }),

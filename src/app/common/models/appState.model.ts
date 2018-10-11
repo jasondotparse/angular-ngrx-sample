@@ -1,3 +1,3 @@
 export interface AppState {
-  mainDashboard: any;
+  todoList: any;
 }

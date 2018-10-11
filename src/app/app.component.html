@@ -3,9 +3,12 @@
 </mat-toolbar>
 
 <app-main-dashboard (submitNewTask)="submitNewTask($event)"></app-main-dashboard>
-<app-task-detail></app-task-detail>
+<app-task-detail
+  [featuredItem]="featuredItem">
+</app-task-detail>
 
 <app-todo-list 
   (deleteItem)="deleteItem($event)"
+  (setFeatured)="setFeaturedItem($event)"
   [todoList]="todoList">
 </app-todo-list>

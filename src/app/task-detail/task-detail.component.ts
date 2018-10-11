@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { TodoItem } from './../common/models/appState.model';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-task-detail',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task-detail.component.css']
 })
 export class TaskDetailComponent implements OnInit {
+  @Input() featuredItem: TodoItem;
 
   constructor() { }
 

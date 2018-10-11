@@ -1,3 +1,4 @@
-<p>
-  task-detail works!
-</p>
+<div *ngIf="featuredItem" class="mat-typography">
+  <div>{{featuredItem.task}}</div>
+  <div>{{featuredItem.comment}}</div>
+</div>

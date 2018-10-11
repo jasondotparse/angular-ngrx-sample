@@ -9,6 +9,7 @@ export class TodoItemComponent implements OnInit {
 
   @Input() task;
   @Output() delete = new EventEmitter();
+  @Output() setFeatured = new EventEmitter();
 
   constructor() { }
 

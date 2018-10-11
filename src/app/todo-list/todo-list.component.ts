@@ -10,6 +10,7 @@ export class TodoListComponent implements OnInit {
 
   @Input() todoList: Array<TodoItem>;
   @Output() deleteItem = new EventEmitter();
+  @Output() setFeatured = new EventEmitter();
 
   constructor() { }
 

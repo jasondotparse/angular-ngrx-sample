@@ -5,4 +5,5 @@ export interface TodoItem {
 
 export interface AppState {
   todoList: Array<TodoItem>;
+  featuredItem: TodoItem;
 }

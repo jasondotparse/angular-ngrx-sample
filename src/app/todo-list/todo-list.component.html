@@ -2,7 +2,8 @@
   <div *ngFor="let item of todoList">
     <app-todo-item 
       (delete)="deleteItem.emit($event)"
-      [task]="item.task">
+      (setFeatured)="setFeatured.emit($event)"
+      [task]="item">
     </app-todo-item>
   </div>
 </div>

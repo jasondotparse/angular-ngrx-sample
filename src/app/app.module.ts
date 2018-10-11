@@ -16,6 +16,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoItemComponent } from './todo-list/todo-item/todo-item.component';
 import { TodoListReducer } from './common/reducers/todo-list.reducer';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
+import { FeaturedItemReducer } from './common/reducers/featured-item.reducer';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { TaskDetailComponent } from './task-detail/task-detail.component';
     BrowserModule,
     MatIconModule,
     FormsModule,
-    StoreModule.forRoot({ todoList: TodoListReducer }),
+    StoreModule.forRoot({ todoList: TodoListReducer, featuredItem: FeaturedItemReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25
     }),

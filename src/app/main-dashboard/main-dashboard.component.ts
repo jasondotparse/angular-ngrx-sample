@@ -1,4 +1,3 @@
-// main-dashboard.component.ts
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
@@ -8,11 +7,17 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class MainDashboardComponent implements OnInit {
 
-  @Output() increment = new EventEmitter();
-  @Output() decrement = new EventEmitter();
+  @Output() submitNewTask = new EventEmitter();
+
+  task;
+  comment;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  submit() {
+    this.submitNewTask.emit({ task: this.task, comment: this.comment });
   }
 }

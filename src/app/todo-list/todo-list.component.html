@@ -1,5 +1,8 @@
 <div class="mat-typography">
   <div *ngFor="let item of todoList">
-    <app-todo-item [task]="'test task'"></app-todo-item>
+    <app-todo-item 
+      (delete)="deleteItem.emit($event)"
+      [task]="item.task">
+    </app-todo-item>
   </div>
 </div>

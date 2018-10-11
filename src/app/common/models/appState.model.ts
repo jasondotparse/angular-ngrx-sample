@@ -1,3 +1,8 @@
+export interface TodoItem {
+  task: string;
+  comment: string;
+}
+
 export interface AppState {
-  todoList: any;
+  todoList: Array<TodoItem>;
 }

@@ -1,16 +1,20 @@
+import { TodoItem } from './../models/appState.model';
 import { Action } from '@ngrx/store';
 
-export const INCREMENT = 'INCREMENT';
-export const DECREMENT = 'DECREMENT';
+export const NEW_TASK = 'NEW_TASK';
+export const DELETE_TASK = 'DELETE_TASK';
 
-export class Increment implements Action {
-  readonly type = INCREMENT;
-  constructor() {}
+export class NewTask implements Action {
+  readonly type = NEW_TASK;
+  constructor(public payload: TodoItem) {}
 }
 
-export class Decrement implements Action {
-  readonly type = DECREMENT;
-  constructor() {}
+export class DeleteTask implements Action {
+  readonly type = DELETE_TASK;
+  constructor(public payload: string) {}
 }
 
-export type CounterActions = | Increment | Decrement;
+
+export type TodoListActions =
+  | NewTask
+  | DeleteTask;

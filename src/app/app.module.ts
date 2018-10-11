@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 
@@ -25,6 +27,8 @@ import { TaskDetailComponent } from './task-detail/task-detail.component';
   ],
   imports: [
     BrowserModule,
+    MatIconModule,
+    FormsModule,
     StoreModule.forRoot({ todoList: TodoListReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25

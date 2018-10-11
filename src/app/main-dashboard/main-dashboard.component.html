@@ -2,14 +2,14 @@
   <h2>Add item</h2>
 
   <mat-form-field class="input-field">
-    <input matInput placeholder="task">
+    <input [(ngModel)]="task" matInput placeholder="task">
   </mat-form-field>
 
   <mat-form-field class="input-field">
-    <input matInput placeholder="comment">
+    <input [(ngModel)]="comment" matInput placeholder="comment">
   </mat-form-field>
 
   <div>
-    <button mat-button>submit</button>
+    <button mat-button (click)="submit()">submit</button>
   </div>
 </div>

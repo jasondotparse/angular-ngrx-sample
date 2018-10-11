@@ -1,7 +1,7 @@
-import { AppState } from './common/models/appState.model';
+import { AppState, TodoItem } from './common/models/appState.model';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import * as TodoListActions from './common/actions/todo-list.actions';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +9,20 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  counter: Observable<number>;
+  todoList: Array<TodoItem>;
 
   constructor(private store: Store<AppState>) {
-    // store.select(state => state.mainDashboard.counter).subscribe(res => {
-    //   this.counter = res;
-    // });
+    store.select(state => state.todoList).subscribe(res => {
+      this.todoList = res;
+    });
+  }
+
+  submitNewTask(evt) {
+    this.store.dispatch(new TodoListActions.NewTask(evt));
+  }
+
+  deleteItem(evt) {
+    this.store.dispatch(new TodoListActions.DeleteTask(evt));
   }
 
 }

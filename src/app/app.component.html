@@ -2,7 +2,10 @@
   <span>To-do</span>
 </mat-toolbar>
 
-<app-main-dashboard></app-main-dashboard>
+<app-main-dashboard (submitNewTask)="submitNewTask($event)"></app-main-dashboard>
 <app-task-detail></app-task-detail>
 
-<app-todo-list></app-todo-list>
+<app-todo-list 
+  (deleteItem)="deleteItem($event)"
+  [todoList]="todoList">
+</app-todo-list>

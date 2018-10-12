@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppComponent } from './app.component';
 
@@ -38,6 +39,7 @@ import { DeletedItemsReducer } from './common/reducers/deleted-items.reducer';
     AngularFirestoreModule,
     MatIconModule,
     FormsModule,
+    MatCardModule,
     StoreModule.forRoot({
       todoList: TodoListReducer,
       featuredItem: FeaturedItemReducer,

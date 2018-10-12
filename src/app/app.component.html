@@ -2,15 +2,24 @@
   <span>To-do</span>
 </mat-toolbar>
 
-<app-main-dashboard (submitNewTask)="submitNewTask($event)"></app-main-dashboard>
-<app-task-detail
-  [featuredItem]="featuredItem">
-</app-task-detail>
+<div id="todo-list">
+  <app-todo-list
+    (deleteItem)="deleteItem($event)"
+    (setFeatured)="setFeaturedItem($event)"
+    [todoList]="todoList">
+  </app-todo-list>
+</div>
 
-<app-todo-list 
-  (deleteItem)="deleteItem($event)"
-  (setFeatured)="setFeaturedItem($event)"
-  [todoList]="todoList">
-</app-todo-list>
+<div id="main-dashboard">
+  <app-main-dashboard
+    (submitNewTask)="submitNewTask($event)">
+  </app-main-dashboard>
+</div>
 
-<button mat-button (click)="saveChanges()">save</button>
+<div id="task-detail">
+  <app-task-detail
+    [featuredItem]="featuredItem">
+  </app-task-detail>
+</div>
+
+<button mat-button id="save-button" (click)="saveChanges()">save changes</button>

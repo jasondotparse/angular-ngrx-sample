@@ -1,15 +1,17 @@
-<div class="mat-typography">
-  <h2>Add item</h2>
+<mat-card>
+  <div class="mat-typography">
+    <h2>Add item</h2>
 
-  <mat-form-field class="input-field">
-    <input [(ngModel)]="task" matInput placeholder="task">
-  </mat-form-field>
+    <mat-form-field class="input-field">
+      <input [(ngModel)]="task" matInput placeholder="task">
+    </mat-form-field>
 
-  <mat-form-field class="input-field">
-    <input [(ngModel)]="comment" matInput placeholder="comment">
-  </mat-form-field>
+    <mat-form-field class="input-field">
+      <input [(ngModel)]="comment" matInput placeholder="comment">
+    </mat-form-field>
 
-  <div>
-    <button mat-button (click)="submit()">submit</button>
+    <div>
+      <button mat-button (click)="submit()">submit</button>
+    </div>
   </div>
-</div>
+</mat-card>

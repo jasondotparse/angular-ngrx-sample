@@ -1,4 +1,7 @@
-<div *ngIf="featuredItem" class="mat-typography">
-  <div>{{featuredItem.get('task')}}</div>
-  <div>{{featuredItem.get('comment')}}</div>
-</div>
+<mat-card>
+  <h3>task details:</h3>
+  <div *ngIf="featuredItem" class="mat-typography">
+    <div>Task: {{featuredItem.get('task')}}</div>
+    <div>{{featuredItem.get('comment')}}</div>
+  </div>
+</mat-card>

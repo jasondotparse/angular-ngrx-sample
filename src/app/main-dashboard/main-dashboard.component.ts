@@ -19,6 +19,8 @@ export class MainDashboardComponent implements OnInit {
   }
 
   submit() {
-    this.submitNewTask.emit(Map({ task: this.task, comment: this.comment }));
+    if (this.task && this.comment) {
+      this.submitNewTask.emit(Map({ task: this.task, comment: this.comment }));
+    }
   }
 }

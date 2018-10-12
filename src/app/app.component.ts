@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
 
   submitNewTask(evt) {
     const newID = Math.round(Math.random() * 100000);
-    this.store.dispatch(new TodoListActions.NewTask(evt.set('id', newID)));
+    this.store.dispatch(new TodoListActions.NewTask(evt));
   }
 
   deleteItem(evt) {

@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
   }
 
   initializeTaskList(arr) {
-    const mapArr = arr.map(obj => Map(obj));
+    const mapArr = arr.map(obj => Map({ ...obj, saved: true }));
     const mapSet = Set.of(...mapArr);
     this.store.dispatch(new TodoListActions.InitializeTaskList(mapSet));
   }

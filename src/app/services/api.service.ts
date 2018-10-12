@@ -14,16 +14,22 @@ export class ApiService {
     return this.firestore.collection('tasks').valueChanges();
   }
 
+  // db.collection("cities").doc("new-city-id").set(data);
   addTasks = arr => {
     arr.forEach(todo => {
-      this.firestore.collection('tasks').add(todo.toJS()).then(() => {
-        console.log(`added ${todo.todo} to firebase.`);
+      const saved = todo.set('saved', true);
+      this.firestore.collection('tasks').doc(String(todo.get('id'))).set(saved.toJS()).then(() => {
+        console.log(`added todo id ${todo.get('id')} to firebase.`);
       });
     });
   }
 
   deleteTasks = arr => {
-    // get all the collections. If the props match those in the todo, delete it.
+    arr.forEach(todo => {
+      this.firestore.collection('tasks').doc(String(todo.get('id'))).delete().then(res => {
+        console.log(`deleted todo ID ${todo.get('id')}`);
+      });
+    });
   }
 
 }

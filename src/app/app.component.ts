@@ -59,16 +59,14 @@ export class AppComponent implements OnInit {
   }
 
   saveChanges() {
-    // get all the tasks in todolist that have not been saved and save them on the db
+    // save all unsaved items to database. Then set their saved prop to true.
     const unsaved = this.todoList.filter(todo => !todo.get('saved'));
     this.api.addTasks(unsaved);
-
-    // update todoList to ensure all items now have their saved prop set to true
     this.store.dispatch(new TodoListActions.SetAllToSaved());
 
-    // get all the tasks in deleted, which have been saved, and delete them on the db
-    const deleted = this.deletedItems.filter(todo => !todo.get('saved'));
-    this.api.deleteTasks(deleted);
+    // for all deleted items, delete them on firebase. Then empty the trash.
+    this.api.deleteTasks(this.deletedItems);
+    this.store.dispatch(new DeletedItemsActions.EmptyTrash());
   }
 
 }

@@ -1,16 +1,16 @@
 #main-dashboard {
-  width: 50%;
+  width: 75%;
 }
 
 #task-detail {
   margin-top:20px;
-  width: 50%;
+  width: 75%;
 }
 
 #todo-list {
-  float: right;
   margin-right: 100px;
-  margin-top:0px;
+  margin-top: 30px;
+  margin-left: 10px;
 }
 
 #save-button {

@@ -11,6 +11,9 @@ export function TodoListReducer(state = Set.of(Map({})),  action): Set<any> {
       return state.add(newTask);
     case todoListActions.INITIALIZE_TASK_LIST:
       return action.payload;
+    case todoListActions.SET_ALL_TO_SAVED:
+      const iterable = state.map(todo => todo.set('saved', true));
+      return Set(iterable);
     default:
       return state;
   }

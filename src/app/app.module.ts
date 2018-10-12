@@ -22,6 +22,7 @@ import { TodoItemComponent } from './todo-list/todo-item/todo-item.component';
 import { TodoListReducer } from './common/reducers/todo-list.reducer';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { FeaturedItemReducer } from './common/reducers/featured-item.reducer';
+import { DeletedItemsReducer } from './common/reducers/deleted-items.reducer';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,11 @@ import { FeaturedItemReducer } from './common/reducers/featured-item.reducer';
     AngularFirestoreModule,
     MatIconModule,
     FormsModule,
-    StoreModule.forRoot({ todoList: TodoListReducer, featuredItem: FeaturedItemReducer }),
+    StoreModule.forRoot({
+      todoList: TodoListReducer,
+      featuredItem: FeaturedItemReducer,
+      deletedItems: DeletedItemsReducer
+     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25
     }),

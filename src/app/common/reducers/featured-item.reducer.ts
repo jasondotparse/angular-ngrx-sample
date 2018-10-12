@@ -10,4 +10,4 @@ export function FeaturedItemReducer(state = defaultState,  action): Map<string, 
     default:
       return state;
   }
-}
+} 

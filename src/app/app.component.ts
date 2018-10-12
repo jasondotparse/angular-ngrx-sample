@@ -50,4 +50,8 @@ export class AppComponent implements OnInit {
     this.store.dispatch(new FeaturedItemActions.SetFeatured(evt));
   }
 
+  saveChanges() {
+    this.api.addTask({task: 'task', comment: 'testing123'});
+  }
+
 }

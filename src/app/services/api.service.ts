@@ -6,11 +6,18 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-  constructor(private db: AngularFirestore) {
-    console.log(this.db);
+  constructor(private firestore: AngularFirestore) {
+
   }
 
   getTasks = () => {
-    return this.db.collection('tasks').valueChanges();
+    return this.firestore.collection('tasks').valueChanges();
   }
+
+  addTask = task => {
+    this.firestore.collection('tasks').add(task).then(() => {
+      console.log('success!');
+    });
+  }
+
 }
